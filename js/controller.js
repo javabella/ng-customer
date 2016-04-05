@@ -7,23 +7,23 @@ customersApp.config([
   function($routeProvide, $locationProvider){
 	$routeProvide
 		.when('/',{
-		  templateUrl:'/template/index.html',
+		  templateUrl:'./template/index.html',
 		  controller:'CustomerListCtrl'
 		})
 		.when('/about',{
-		  templateUrl:'/template/about.html',
+		  templateUrl:'./template/about.html',
 		  controller:'AboutCtrl'
 		})
 		.when('/about/:id',{
-		  templateUrl:'/template/about-customer.html',
+		  templateUrl:'./template/about-customer.html',
 		  controller:'AboutCustomerCtrl'
 		})
 		.when('/orders', {
-		  templateUrl:'/template/orders.html',
+		  templateUrl:'./template/orders.html',
 		  controller:'OrdersCtrl'
 		})
 		.when('/orders/:id', {
-		  templateUrl:'/template/orders-customer.html',
+		  templateUrl:'./template/orders-customer.html',
 		  controller:'OrdersCustomerCtrl'
 		})
 		.otherwise({
