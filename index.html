@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Angular App</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+</head>
+<body ng-app="customersApp" ng-cloak>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">Customer Management</a>
+            </div>
+            <div id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav" ng-controller="HeaderController">
+                    <li ng-class="{ active: isActive('/')}"><a href="#/">Customers</a></li>
+                    <li ng-class="{ active: isActive('/orders')}"><a href="#/orders">Orders</a></li>
+                    <li ng-class="{ active: isActive('/about')}"><a href="#/about">About</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container" ng-view>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-route.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-resource.js"></script>
+    <script src="js/controller.js"></script>
+</body>
+</html>

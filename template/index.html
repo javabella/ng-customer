@@ -1,0 +1,60 @@
+<h1><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Customers</h1>
+<div class="btn-group btn-group-justified">
+    <div role="group" class="btn-group">
+        <label for="cards-view" ng-class="changeMode == 'cards-view' ? 'btn btn-info' : 'btn btn-default'"><span class="glyphicon glyphicon-th-large" aria-hidden="true"></span> Card View</a></label>
+        <input type="radio" name="mode" value="cards-view" id="cards-view" ng-model="changeMode" hidden>
+    </div>
+    <div role="group" class="btn-group">
+        <label for="list-view" ng-class="changeMode == 'list-view' ? 'btn btn-info' : 'btn btn-default'"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span> List View</a></label>
+        <input type="radio" name="mode" value="list-view" id="list-view" ng-model="changeMode" hidden>
+    </div>
+    <div role="group" class="btn-group form-inline text-right">
+    	<label for="filter">Filter: </label>
+        <input type="text" class="form-control" id="filter" ng-model="query">
+    </div>
+</div>
+<hr>
+<div class="row">
+	<div class="col-xs-3" ng-show="changeMode == 'cards-view'" ng-hide="changeMode == 'list-view'" ng-repeat="customer in customers | filter: query">
+		<div class="panel panel-info" >
+			<div class="panel-heading">
+				<h3 class="panel-title"><a ng-href="#/about/{{ customer._id }}">{{ customer.name.first + ' ' + customer.name.last }}</a></h3>
+			</div>
+			<div class="panel-body">
+				<div class="media">
+					<div class="media-left media-middle">
+						<img class="media-object" ng-src="{{ customer.picture }}" alt="">
+					</div>
+					<div class="media-body">
+						{{ customer.country }}<br>
+						<a ng-href="#/orders/{{ customer._id }}">{{ customer.orders }} Orders</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<table class="table" ng-hide="changeMode == 'cards-view'" ng-show="changeMode == 'list-view'">
+		<thead>
+			<th>&nbsp;</th>
+			<th>Name</th>
+			<th>Location</th>
+			<th>Orders</th>
+		</thead>
+		<tr ng-repeat="customer in customers | filter: query">
+			<td>
+				<img class="media-object" ng-src="{{ customer.picture }}" alt="">
+			</td>
+			<td>
+				<a ng-href="#/about/{{ customer._id }}">{{ customer.name.first + ' ' + customer.name.last }}</a>
+			</td>
+			<td>
+				{{ customer.country }}
+			</td>
+			<td>
+				<a ng-href="#/orders/{{ customer._id }}">{{ customer.orders }} Orders</a>
+			</td>
+		</tr>
+	</table>
+</div>
+
+
