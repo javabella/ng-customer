@@ -45,7 +45,7 @@ customersApp.controller('HeaderController', [
 customersApp.controller('CustomerListCtrl', [
 	'$scope','$http',
 	function($scope, $http) {
-		$http.get('../customers.json').success(function(data) {
+		$http.get('./customers.json').success(function(data) {
 			$scope.customers = data;
 		});
 
@@ -70,7 +70,7 @@ customersApp.controller('OrdersCtrl', [
 customersApp.controller('AboutCustomerCtrl', [
 	'$scope','$http', '$filter', '$routeParams',
 	function($scope, $http, $filter, $routeParams) {
-		$http.get('../customers.json').success(function(data) {
+		$http.get('./customers.json').success(function(data) {
 			$scope.customer = $filter('filter')(data, {'_id' : $routeParams.id})[0];
 		});
 
@@ -80,7 +80,7 @@ customersApp.controller('AboutCustomerCtrl', [
 customersApp.controller('OrdersCustomerCtrl', [
 	'$scope','$http', '$filter', '$routeParams',
 	function($scope, $http, $filter, $routeParams) {
-		$http.get('../customers.json').success(function(data) {
+		$http.get('./customers.json').success(function(data) {
 			$scope.customer = $filter('filter')(data, {'_id' : $routeParams.id})[0];
 		});
 
